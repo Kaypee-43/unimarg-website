@@ -17,7 +17,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // ---------- Contact form ----------
 // SETUP: replace YOUR_FORM_ID below with the ID from your Formspree dashboard.
 // To move to another provider later, only this one line needs to change.
-const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORM_ENDPOINT = 'https://formspree.io/f/xgoglqyd';
 
 const form = document.getElementById('enquiry');
 if (form) {
