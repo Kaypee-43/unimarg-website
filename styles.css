@@ -115,6 +115,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);bo
 form .btn{margin-top:24px;width:100%}
 .form-note{font-size:.86rem;color:var(--grey);margin-top:14px;text-align:center}
 #form-ok{display:none;margin-top:16px;background:var(--tint);border:1px solid var(--blue);border-radius:10px;padding:14px;color:var(--ink);font-weight:500}
+#form-err{display:none;margin-top:16px;background:#FDF3F3;border:1px solid #D96A6A;border-radius:10px;padding:14px;color:#8C2F2F;font-weight:500}
+#form-err a{color:#8C2F2F;text-decoration:underline}
+form .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 
 .cta-band{text-align:center}
 .cta-band p{max-width:38em;margin:0 auto 30px;color:#B9C9D2}
@@ -130,8 +133,11 @@ footer{background:var(--ink);color:#9FB3BE;padding:56px 0 30px;font-size:.95rem}
 .foot a:hover{color:var(--gold)}
 .copyright{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:22px;text-align:center;font-size:.85rem}
 
-.clients-wall{margin-top:36px;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.clients-wall li{font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--ink);background:var(--tint);border:1px solid var(--line);border-radius:999px;padding:11px 22px}
+.clients-wall{margin-top:36px;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.clients-wall li{flex:1 1 190px;max-width:240px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;justify-content:center;transition:transform .18s,box-shadow .18s,border-color .18s}
+.clients-wall li:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue)}
+.clients-wall img{width:100%;height:auto}
+@media (max-width:640px){.clients-wall li{flex:1 1 130px;padding:10px 12px}}
 
 .svc-group-label{font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:44px 0 6px}
 .svc-group-label:first-of-type{margin-top:0}
