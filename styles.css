@@ -43,10 +43,9 @@ h3{font-size:1.22rem;font-weight:600;margin-bottom:8px}
 .marg-line path{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:7 6;stroke-linecap:round}
 
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{font-family:var(--display);font-weight:700;font-size:1.55rem;letter-spacing:-.01em;line-height:1}
-.logo-u{color:var(--blue)}
-.logo-m{color:var(--gold-deep)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+.logo{display:flex;align-items:center;flex:0 0 auto}
+.logo img{height:60px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
 .nav-links a{font-weight:500;color:var(--ink);font-size:.98rem}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--blue-dark)}
@@ -124,8 +123,7 @@ form .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 
 footer{background:var(--ink);color:#9FB3BE;padding:56px 0 30px;font-size:.95rem}
 .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-.wordmark{font-family:var(--display);font-weight:700;font-size:1.6rem}
-.wordmark .u{color:var(--blue)}.wordmark .m{color:var(--gold)}
+img.wordmark{height:58px;width:auto;display:block}
 .foot h4{color:#fff;font-size:.95rem;margin-bottom:14px}
 .foot ul{list-style:none}
 .foot li{margin-bottom:9px}
@@ -157,8 +155,11 @@ footer{background:var(--ink);color:#9FB3BE;padding:56px 0 30px;font-size:.95rem}
   .grid-3,.grid-4,.values,.steps{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
+  .nav{height:74px}
+  .logo img{height:46px}
+  img.wordmark{height:50px}
   .nav-toggle{display:block}
-  .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;border-bottom:1px solid var(--line);gap:18px}
+  .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;border-bottom:1px solid var(--line);gap:18px}
   .nav-links.open{display:flex}
   .step-path{display:none}
 }
