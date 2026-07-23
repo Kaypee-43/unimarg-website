@@ -98,9 +98,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .svc .deliv-title{font-family:var(--display);font-weight:600;color:var(--ink);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
 
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
-.person{display:flex;gap:20px;align-items:flex-start}
-.person .avatar{flex:0 0 84px;height:84px;border-radius:50%;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--blue-dark);border:2px solid var(--blue)}
-.person .role{font-size:.9rem;color:var(--blue-dark);font-weight:600;margin-bottom:6px}
+.leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.leader{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 24px 30px;text-align:center;transition:transform .18s,box-shadow .18s,border-color .18s}
+.leader:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+.leader img{width:168px;height:168px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px}
+.leader h3{font-size:1.12rem;margin-bottom:2px}
+.leader .role{font-size:.9rem;color:var(--blue-dark);font-weight:600}
 
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start;margin-top:40px}
 .contact-item{display:flex;gap:14px;margin-bottom:26px}
@@ -148,11 +151,14 @@ img.wordmark{height:58px;width:auto;display:block}
   .grid-3,.grid-4,.values{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(3,1fr)}
   .svc,.contact-grid,.grid-2{grid-template-columns:1fr}
+  .leader img{width:132px;height:132px}
+  .leader{padding:28px 16px 24px}
   .foot{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
   section{padding:60px 0}
-  .grid-3,.grid-4,.values,.steps{grid-template-columns:1fr}
+  .grid-3,.grid-4,.values,.steps,.leaders{grid-template-columns:1fr}
+  .leader img{width:168px;height:168px}
   .why{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .nav{height:74px}
