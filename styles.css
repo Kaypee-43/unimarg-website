@@ -104,6 +104,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .leader img{width:168px;height:168px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px}
 .leader h3{font-size:1.12rem;margin-bottom:2px}
 .leader .role{font-size:.9rem;color:var(--blue-dark);font-weight:600}
+.leader .li{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:7px 15px;font-family:var(--display);font-size:.82rem;font-weight:600;letter-spacing:.03em;color:var(--blue-dark);border:1px solid var(--line);border-radius:999px;transition:background .18s,border-color .18s,color .18s}
+.leader .li svg{width:15px;height:15px;flex:none}
+.leader .li:hover{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
 
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start;margin-top:40px}
 .contact-item{display:flex;gap:14px;margin-bottom:26px}
