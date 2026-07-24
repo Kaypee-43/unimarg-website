@@ -54,6 +54,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-dark);color:#fff}
+.nav-links .btn-blue{background:var(--blue-dark);color:#fff}
+.nav-links .btn-blue:hover{background:#0A6A96;color:#fff}
 .btn-gold{background:var(--gold);color:var(--ink)}
 .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
 .band-dark .btn-ghost{border-color:#fff;color:#fff}
