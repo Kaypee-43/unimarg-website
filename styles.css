@@ -169,3 +169,42 @@ img.wordmark{height:58px;width:auto;display:block}
   .nav-links.open{display:flex}
   .step-path{display:none}
 }
+
+/* ============ Accessibility utility ============ */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* ============ FAQ (AEO) ============ */
+.faq{max-width:860px;margin-top:26px}
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:0 24px;margin-bottom:12px;transition:box-shadow .18s;
+}
+.faq-item[open]{box-shadow:var(--shadow)}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:20px 34px 20px 0;position:relative;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary h3{
+  display:inline;font-family:var(--display);font-size:1.04rem;
+  font-weight:600;color:var(--ink);margin:0;
+}
+.faq-item summary::after{
+  content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-family:var(--display);font-size:1.5rem;font-weight:500;
+  color:var(--blue);line-height:1;transition:transform .18s;
+}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item summary:focus-visible{
+  outline:3px solid var(--blue);outline-offset:4px;border-radius:6px;
+}
+.faq-item > p{
+  margin:0;padding:0 0 22px;color:var(--body);font-size:.98rem;line-height:1.7;
+  border-top:1px solid var(--line);padding-top:18px;
+}
+@media (max-width:640px){
+  .faq-item{padding:0 18px}
+  .faq-item summary h3{font-size:.98rem}
+}

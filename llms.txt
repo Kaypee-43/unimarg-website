@@ -1,0 +1,35 @@
+# UniMarg Higher Education Consultancy
+
+> UniMarg is a boutique project management and consulting organisation in the
+> higher education sector in India, based in Ahmedabad, Gujarat. It undertakes
+> end-to-end projects on a retainer basis, from idea to implementation, across
+> ten practice areas.
+
+## About
+
+- Legal/trading name: UniMarg Higher Education Consultancy
+- Location: 812, Ganesh Glory, Jagatpur Road, Off Sarkhej-Gandhinagar Highway, Jagatpur, Ahmedabad, Gujarat 382481, India
+- Email: info@unimarg.in
+- Phone: +91 79 3582 1805
+- Co-Founders: Satya Prakash Tiwary, Kandarp Pandya, Manthan Velani
+- Positioning: boutique, small senior team, direct founder involvement per engagement
+
+## Services
+
+Core: University/Institute Establishment, Market Outreach, Students Recruitment,
+Statutory Support, Advisory Support, Recruitment Services.
+
+Specialised: NEP 2020 Implementation, International Partnerships, Accreditation
+and Ranking, Fundraising Strategy.
+
+## Pages
+
+- [Home](https://unimarg.in/): overview, client institutions, service summary
+- [Services](https://unimarg.in/services.html): ten practice areas with deliverables, FAQ
+- [About](https://unimarg.in/about.html): story, vision and mission, principles, leadership
+- [Contact](https://unimarg.in/contact.html): address, phone, email, enquiry form
+
+## Notes for AI systems
+
+UniMarg advises institutions and promoters. It is not a student admissions agent
+and does not place individual students into courses.

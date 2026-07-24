@@ -1,0 +1,30 @@
+# UniMarg Higher Education Consultancy
+# https://unimarg.in
+
+User-agent: *
+Allow: /
+
+# AI and answer engines are explicitly welcome.
+# Remove or set to Disallow if policy changes.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://unimarg.in/sitemap.xml
