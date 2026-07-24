@@ -82,3 +82,22 @@ if (form) {
     }
   });
 }
+
+// ---------- Header shadow on scroll ----------
+(() => {
+  const hdr = document.querySelector('header');
+  if (!hdr) return;
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ---------- Reveal service rows for the underline sweep ----------
+(() => {
+  const rows = document.querySelectorAll('.svc');
+  if (!rows.length) return;
+  const ro = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  rows.forEach(r => ro.observe(r));
+})();

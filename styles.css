@@ -208,3 +208,226 @@ img.wordmark{height:58px;width:auto;display:block}
   .faq-item{padding:0 18px}
   .faq-item summary h3{font-size:.98rem}
 }
+
+/* ==========================================================================
+   ATMOSPHERE LAYER
+   Ambient depth built from the brand's own idea: "marg" is a path.
+   Drifting route lines under a soft blue/gold haze. No images, no video.
+   All motion is disabled under prefers-reduced-motion.
+   ========================================================================== */
+
+:root{
+  --haze-blue:24,159,218;
+  --haze-gold:242,193,14;
+  --glass:rgba(255,255,255,.72);
+  --glass-line:rgba(255,255,255,.9);
+  --glow-blue:0 0 0 1px rgba(24,159,218,.18), 0 18px 44px -14px rgba(24,159,218,.38);
+  --glow-soft:0 22px 50px -20px rgba(22,48,62,.28);
+}
+
+/* ---------- 1. Ambient field ---------- */
+
+.hero,
+.band-tint,
+.band-dark,
+.cta-band{
+  position:relative;isolation:isolate;
+  overflow:hidden;   /* fallback */
+  overflow:clip;     /* does not create a scroll container */
+}
+
+.hero > .wrap,
+.band-tint > .wrap,
+.band-dark > .wrap,
+.cta-band > .wrap{position:relative;z-index:2}
+
+/* Soft colour haze */
+.hero::before,
+.band-tint::before{
+  content:"";position:absolute;inset:-30% -15% -30% -15%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(34% 40% at 16% 26%, rgba(var(--haze-blue),.20), transparent 68%),
+    radial-gradient(28% 34% at 84% 14%, rgba(var(--haze-gold),.17), transparent 70%),
+    radial-gradient(36% 42% at 66% 84%, rgba(var(--haze-blue),.13), transparent 72%);
+  animation:haze-drift 42s ease-in-out infinite alternate;
+}
+.band-tint::before{opacity:.55}
+
+/* The path field: routes crossing the page, the marg motif */
+.hero::after,
+.band-tint::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 460' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23189FDA' stroke-linecap='round'%3E%3Cpath d='M-60 96 C 220 34 420 150 700 92 S 1180 26 1460 96' stroke-opacity='.13' stroke-width='1.6'/%3E%3Cpath d='M-60 158 C 240 92 440 208 700 152 S 1200 88 1460 158' stroke-opacity='.10' stroke-width='1.4'/%3E%3Cpath d='M-60 226 C 200 168 460 274 700 220 S 1160 156 1460 226' stroke-opacity='.085' stroke-width='1.3'/%3E%3Cpath d='M-60 300 C 260 240 420 348 700 292 S 1220 232 1460 300' stroke-opacity='.07' stroke-width='1.2'/%3E%3Cpath d='M-60 376 C 220 316 470 424 700 368 S 1180 308 1460 376' stroke-opacity='.055' stroke-width='1.1'/%3E%3C/g%3E%3Cg fill='%23F2C10E' fill-opacity='.30'%3E%3Ccircle cx='700' cy='92' r='3'/%3E%3Ccircle cx='240' cy='168' r='2.4'/%3E%3Ccircle cx='1160' cy='226' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:1400px 460px;background-repeat:repeat;
+  animation:path-drift 60s linear infinite;
+  opacity:.9;
+  mask-image:linear-gradient(180deg,transparent,#000 18%,#000 78%,transparent);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 18%,#000 78%,transparent);
+}
+.band-tint::after{opacity:.5}
+
+/* Dark bands get depth rather than haze */
+.band-dark::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(46% 60% at 88% 8%, rgba(var(--haze-gold),.15), transparent 66%),
+    radial-gradient(50% 62% at 6% 96%, rgba(var(--haze-blue),.20), transparent 68%);
+  animation:haze-drift 50s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes haze-drift{
+  0%  {transform:translate3d(0,0,0) scale(1)}
+  50% {transform:translate3d(-2.5%,1.5%,0) scale(1.06)}
+  100%{transform:translate3d(2%,-2%,0) scale(1.03)}
+}
+@keyframes path-drift{
+  from{background-position:0 0}
+  to  {background-position:1400px 0}
+}
+
+/* Soften the seams between bands */
+.band-tint::before,
+.band-dark::before{
+  mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+}
+
+/* ---------- 2. The signature: paths that advance ---------- */
+
+.marg-line path{animation:march 5.5s linear infinite}
+.hero-journey path{animation:march 9s linear infinite}
+.step-path path{animation:march 7s linear infinite}
+@keyframes march{to{stroke-dashoffset:-26}}
+
+.hero-journey circle{animation:pulse 3.6s ease-in-out infinite}
+.hero-journey circle:last-of-type{animation-delay:1.8s}
+@keyframes pulse{
+  0%,100%{opacity:1;r:7}
+  50%    {opacity:.72;r:8.4}
+}
+
+/* ---------- 3. Glass and lift ---------- */
+
+.card,
+.leader,
+.clients-wall li,
+.faq-item{
+  background:linear-gradient(158deg,rgba(255,255,255,.96),rgba(255,255,255,.80));
+  border-color:rgba(255,255,255,.85);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 10px 30px -18px rgba(22,48,62,.35);
+  backdrop-filter:blur(10px) saturate(1.05);
+  -webkit-backdrop-filter:blur(10px) saturate(1.05);
+  transition:transform .22s cubic-bezier(.2,.7,.3,1),
+             box-shadow .22s ease, border-color .22s ease;
+}
+.card:hover,
+.leader:hover,
+.faq-item:hover{
+  transform:translateY(-5px);
+  border-color:rgba(24,159,218,.42);
+  box-shadow:var(--glow-blue), var(--glow-soft);
+}
+.faq-item[open]{
+  border-color:rgba(24,159,218,.34);
+  box-shadow:var(--glow-soft);
+}
+
+/* Cards sitting on white sections need a visible edge */
+section:not(.band-tint):not(.band-dark):not(.cta-band) .card,
+section:not(.band-tint):not(.band-dark):not(.cta-band) .leader{
+  border-color:var(--line);
+}
+
+/* ---------- 4. Client wall ---------- */
+
+.clients-wall li{
+  filter:saturate(.9);
+  transition:transform .22s cubic-bezier(.2,.7,.3,1),
+             box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+}
+.clients-wall li:hover{
+  filter:saturate(1.06);
+  transform:translateY(-4px) scale(1.015);
+  border-color:rgba(24,159,218,.45);
+  box-shadow:var(--glow-blue), var(--glow-soft);
+}
+
+/* ---------- 5. Controls ---------- */
+
+.btn{transition:transform .18s cubic-bezier(.2,.7,.3,1), box-shadow .18s ease, background .18s ease}
+.btn-blue:hover {box-shadow:0 14px 30px -12px rgba(24,159,218,.75)}
+.btn-gold:hover {box-shadow:0 14px 30px -12px rgba(217,172,0,.72)}
+.btn-ghost:hover{box-shadow:0 12px 26px -14px rgba(22,48,62,.55)}
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+
+/* ---------- 6. Header ---------- */
+
+header{
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(16px) saturate(1.4);
+  -webkit-backdrop-filter:blur(16px) saturate(1.4);
+  transition:box-shadow .25s ease, background .25s ease;
+}
+header.scrolled{
+  background:rgba(255,255,255,.92);
+  box-shadow:0 10px 30px -22px rgba(22,48,62,.55);
+}
+
+/* ---------- 7. Service rows ---------- */
+
+.svc{position:relative}
+.svc::after{
+  content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;
+  background:linear-gradient(90deg,var(--blue),var(--gold),transparent);
+  transition:width .7s cubic-bezier(.2,.7,.3,1);
+}
+.svc.in::after{width:100%}
+.svc li{transition:padding-left .18s ease,border-color .18s ease}
+.svc li:hover{padding-left:36px;border-color:rgba(24,159,218,.5)}
+
+/* ---------- 8. Staggered reveal ---------- */
+
+.reveal{transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.grid > .reveal:nth-child(2),
+.values > .reveal:nth-child(2),
+.leaders > .reveal:nth-child(2),
+.why > .reveal:nth-child(2){transition-delay:.09s}
+.grid > .reveal:nth-child(3),
+.values > .reveal:nth-child(3),
+.leaders > .reveal:nth-child(3),
+.why > .reveal:nth-child(3){transition-delay:.18s}
+.grid > .reveal:nth-child(4),
+.why > .reveal:nth-child(4){transition-delay:.27s}
+
+/* ---------- 9. Motion and contrast safety ---------- */
+
+@media (prefers-reduced-motion:reduce){
+  .hero::before,.hero::after,
+  .band-tint::before,.band-tint::after,
+  .band-dark::before,
+  .marg-line path,.hero-journey path,.step-path path,.hero-journey circle{
+    animation:none !important;
+  }
+  .card,.leader,.clients-wall li,.faq-item,.btn{transition:none}
+  .card:hover,.leader:hover,.faq-item:hover,.clients-wall li:hover{transform:none}
+  .svc::after{transition:none}
+}
+
+@media (max-width:920px){
+  /* Lighter compositing on mobile */
+  .card,.leader,.clients-wall li,.faq-item{
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+    background:rgba(255,255,255,.95);
+  }
+  .hero::after,.band-tint::after{opacity:.45}
+}
+
+@media (prefers-contrast:more){
+  .hero::before,.hero::after,
+  .band-tint::before,.band-tint::after,
+  .band-dark::before{display:none}
+  .card,.leader,.clients-wall li,.faq-item{background:#fff;border-color:var(--line)}
+}
