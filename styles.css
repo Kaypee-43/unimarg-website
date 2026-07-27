@@ -39,7 +39,7 @@ h3{font-size:1.22rem;font-weight:600;margin-bottom:8px}
 .accent{color:var(--blue)}
 .accent-gold{color:var(--gold-deep)}
 
-.marg-line{display:block;width:170px;height:12px;margin-top:14px}
+.marg-line{display:block;width:240px;height:12px;margin-top:14px}
 .marg-line path{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:7 6;stroke-linecap:round}
 
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -263,14 +263,14 @@ img.wordmark{height:58px;width:auto;display:block}
 .hero::after,
 .band-tint::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 460' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23189FDA' stroke-linecap='round'%3E%3Cpath d='M-60 96 C 220 34 420 150 700 92 S 1180 26 1460 96' stroke-opacity='.13' stroke-width='1.6'/%3E%3Cpath d='M-60 158 C 240 92 440 208 700 152 S 1200 88 1460 158' stroke-opacity='.10' stroke-width='1.4'/%3E%3Cpath d='M-60 226 C 200 168 460 274 700 220 S 1160 156 1460 226' stroke-opacity='.085' stroke-width='1.3'/%3E%3Cpath d='M-60 300 C 260 240 420 348 700 292 S 1220 232 1460 300' stroke-opacity='.07' stroke-width='1.2'/%3E%3Cpath d='M-60 376 C 220 316 470 424 700 368 S 1180 308 1460 376' stroke-opacity='.055' stroke-width='1.1'/%3E%3C/g%3E%3Cg fill='%23F2C10E' fill-opacity='.30'%3E%3Ccircle cx='700' cy='92' r='3'/%3E%3Ccircle cx='240' cy='168' r='2.4'/%3E%3Ccircle cx='1160' cy='226' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 460' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23189FDA' stroke-linecap='round'%3E%3Cpath d='M-60 96 C 220 34 420 150 700 92 S 1180 26 1460 96' stroke-opacity='.22' stroke-width='1.6'/%3E%3Cpath d='M-60 158 C 240 92 440 208 700 152 S 1200 88 1460 158' stroke-opacity='.18' stroke-width='1.4'/%3E%3Cpath d='M-60 226 C 200 168 460 274 700 220 S 1160 156 1460 226' stroke-opacity='.15' stroke-width='1.3'/%3E%3Cpath d='M-60 300 C 260 240 420 348 700 292 S 1220 232 1460 300' stroke-opacity='.12' stroke-width='1.2'/%3E%3Cpath d='M-60 376 C 220 316 470 424 700 368 S 1180 308 1460 376' stroke-opacity='.10' stroke-width='1.1'/%3E%3C/g%3E%3Cg fill='%23F2C10E' fill-opacity='.50'%3E%3Ccircle cx='700' cy='92' r='3'/%3E%3Ccircle cx='240' cy='168' r='2.4'/%3E%3Ccircle cx='1160' cy='226' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
   background-size:1400px 460px;background-repeat:repeat;
   animation:path-drift 60s linear infinite;
   opacity:.9;
   mask-image:linear-gradient(180deg,transparent,#000 18%,#000 78%,transparent);
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 18%,#000 78%,transparent);
 }
-.band-tint::after{opacity:.5}
+.band-tint::after{opacity:.62}
 
 /* Dark bands get depth rather than haze */
 .band-dark::before{
@@ -300,7 +300,7 @@ img.wordmark{height:58px;width:auto;display:block}
 
 /* ---------- 2. The signature: paths that advance ---------- */
 
-.marg-line path{animation:march 5.5s linear infinite}
+.marg-line path{animation:march 3.5s linear infinite}
 .hero-journey path{animation:march 9s linear infinite}
 .step-path path{animation:march 7s linear infinite}
 @keyframes march{to{stroke-dashoffset:-26}}
