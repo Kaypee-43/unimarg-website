@@ -24,8 +24,9 @@ and Ranking, Fundraising Strategy.
 
 ## Pages
 
-- [Home](https://unimarg.in/): overview, client institutions, service summary
+- [Home](https://unimarg.in/): overview and service summary
 - [Services](https://unimarg.in/services.html): ten practice areas with deliverables, FAQ
+- [Clients](https://unimarg.in/clients.html): client institutions and engagement types
 - [About](https://unimarg.in/about.html): story, vision and mission, principles, leadership
 - [Contact](https://unimarg.in/contact.html): address, phone, email, enquiry form
 
