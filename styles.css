@@ -458,3 +458,10 @@ header.scrolled{
   .logo-set[aria-hidden="true"]{display:none}
   .logo-set li{background:#fff;border-color:var(--line)}
 }
+/* ---------- Cookie consent ---------- */
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;max-width:560px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--glow-soft);padding:20px 22px}
+.cookie-banner p{color:var(--ink);font-size:.92rem;line-height:1.55;margin:0 0 14px}
+.cookie-banner a{color:var(--blue-dark);text-decoration:underline}
+.cookie-actions{display:flex;gap:12px;flex-wrap:wrap}
+.cookie-actions .btn{min-height:44px}
+@media(max-width:520px){.cookie-actions .btn{flex:1 1 auto;text-align:center}}
