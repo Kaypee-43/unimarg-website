@@ -101,3 +101,27 @@ if (form) {
   }, { threshold: 0.15 });
   rows.forEach(r => ro.observe(r));
 })();
+// ---------- Cookie consent (Consent Mode v2) ----------
+(() => {
+  const KEY = 'um_consent';
+  const saved = localStorage.getItem(KEY);
+  const grant = () => { if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted' }); };
+  if (saved === 'granted') { grant(); return; }
+  if (saved === 'denied') { return; }
+  const bar = document.createElement('div');
+  bar.className = 'cookie-banner';
+  bar.setAttribute('role', 'dialog');
+  bar.setAttribute('aria-label', 'Cookie consent');
+  bar.innerHTML =
+    '<p>We use Google Analytics cookies to see how visitors use this site. No analytics cookies are set unless you accept. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>' +
+    '<div class="cookie-actions"><button type="button" class="btn btn-blue" data-c="accept">Accept</button><button type="button" class="btn btn-ghost" data-c="decline">Decline</button></div>';
+  bar.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-c]');
+    if (!b) return;
+    const choice = b.dataset.c === 'accept' ? 'granted' : 'denied';
+    localStorage.setItem(KEY, choice);
+    if (choice === 'granted') grant();
+    bar.remove();
+  });
+  document.body.appendChild(bar);
+})();
