@@ -67,6 +67,21 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .hero-journey{margin-top:64px}
 .hero-journey svg{width:100%;height:auto}
 
+/* Hero live field (progressive enhancement; replaces the static path field when JS runs) */
+.hero-field{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero.has-field::after{content:none}
+
+/* Vision to Excellence marquee */
+.vte-marquee{position:relative;overflow:hidden;margin-top:56px;padding:16px 0 6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.vte-line{position:absolute;left:0;right:0;top:54%;width:100%;height:44px;z-index:0}
+.vte-line path{stroke:var(--blue);stroke-width:2.5;fill:none;stroke-dasharray:8 5;stroke-linecap:round;animation:march 3.2s linear infinite}
+.vte-track{position:relative;z-index:1;display:flex;width:max-content;animation:vte-scroll 24s linear infinite}
+.vte-item{white-space:nowrap;padding-right:30vw;font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:.95;font-size:clamp(1.9rem,4.6vw,3rem)}
+.vte-v{color:var(--blue)}
+.vte-e{color:var(--gold-deep)}
+.vte-to{color:var(--grey);font-weight:600;font-style:italic;padding:0 .3em;font-size:.82em}
+@keyframes vte-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 .grid{display:grid;gap:26px;margin-top:44px}
 .grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-4{grid-template-columns:repeat(4,1fr)}
@@ -417,7 +432,8 @@ header.scrolled{
   .hero::before,.hero::after,
   .band-tint::before,.band-tint::after,
   .band-dark::before,
-  .marg-line path,.hero-journey path,.step-path path,.hero-journey circle{
+  .marg-line path,.hero-journey path,.step-path path,.hero-journey circle,
+  .vte-track,.vte-line path{
     animation:none !important;
   }
   .card,.leader,.clients-wall li,.faq-item,.btn{transition:none}
@@ -435,7 +451,7 @@ header.scrolled{
 }
 
 @media (prefers-contrast:more){
-  .hero::before,.hero::after,
+  .hero::before,.hero::after,.hero-field,
   .band-tint::before,.band-tint::after,
   .band-dark::before{display:none}
   .card,.leader,.clients-wall li,.faq-item{background:#fff;border-color:var(--line)}
