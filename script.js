@@ -125,3 +125,59 @@ if (form) {
   });
   document.body.appendChild(bar);
 })();
+
+// ---------- Hero animated field (progressive enhancement) ----------
+(() => {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  if (matchMedia('(prefers-contrast: more)').matches) return; // keep static fallback
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cv = document.createElement('canvas');
+  cv.className = 'hero-field';
+  cv.setAttribute('aria-hidden', 'true');
+  const ctx = cv.getContext('2d');
+  if (!ctx) return;                       // no 2D context: keep CSS path field
+  hero.insertBefore(cv, hero.firstChild);
+  hero.classList.add('has-field');        // hide the static field now the canvas is live
+
+  let W = 0, H = 0, raf = 0, running = false, lines = [];
+  const build = () => {
+    const N = innerWidth < 920 ? 8 : 13;
+    lines = [];
+    for (let i = 0; i < N; i++) lines.push({
+      base: (i + 0.5) / N, amp: 12 + Math.random() * 40, freq: 0.9 + Math.random() * 2,
+      phase: Math.random() * 6.28, speed: 0.09 + Math.random() * 0.3,
+      gold: (i % 6 === 4), w: 0.6 + Math.random() * 1.4, a: 0.04 + Math.random() * 0.10
+    });
+  };
+  const size = () => {
+    const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = r.width * dpr; cv.height = r.height * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    W = r.width; H = r.height; build();
+  };
+  const draw = (t) => {
+    ctx.clearRect(0, 0, W, H);
+    for (const L of lines) {
+      ctx.beginPath();
+      for (let x = -20; x <= W + 20; x += 8) {
+        const y = L.base * H
+          + Math.sin((x / W) * L.freq * 6.28 + L.phase + (reduce ? 0 : t * 0.001 * L.speed)) * L.amp
+          + Math.sin((x / W) * 4 + (reduce ? 0 : t * 0.0004)) * 7;
+        x < 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = L.gold ? `rgba(217,172,0,${L.a})` : `rgba(24,159,218,${L.a})`;
+      ctx.lineWidth = L.w; ctx.stroke();
+    }
+    if (!reduce) raf = requestAnimationFrame(draw);
+  };
+  const start = () => { if (running || reduce) return; running = true; raf = requestAnimationFrame(draw); };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+
+  size();
+  addEventListener('resize', size, { passive: true });
+  if (reduce) { requestAnimationFrame(draw); return; }  // one static frame, no loop
+  new IntersectionObserver(
+    (es) => es.forEach(e => e.isIntersecting ? start() : stop()),
+    { threshold: 0 }
+  ).observe(hero);
+})();
