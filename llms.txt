@@ -3,7 +3,7 @@
 > UniMarg is a boutique project management and consulting organisation in the
 > higher education sector in India, based in Ahmedabad, Gujarat. It undertakes
 > end-to-end projects on a retainer basis, from idea to implementation, across
-> ten practice areas.
+> seven advisory practices.
 
 ## About
 
@@ -16,16 +16,20 @@
 
 ## Services
 
-Core: University/Institute Establishment, Market Outreach, Students Recruitment,
-Statutory Support, Advisory Support, Recruitment Services.
+Seven advisory practices, each with a dedicated page:
 
-Specialised: NEP 2020 Implementation, International Partnerships, Accreditation
-and Ranking, Fundraising Strategy.
+- Institutional Establishment Support: https://unimarg.in/institutional-establishment.html
+- Market Outreach & Admissions: https://unimarg.in/market-outreach-admissions.html
+- Recognition, Accreditation & Regulatory Approvals: https://unimarg.in/accreditation-regulatory-approvals.html
+- Strategic Advisory Support: https://unimarg.in/strategic-advisory.html
+- Academic & Leadership Search: https://unimarg.in/academic-leadership-search.html
+- Digital Marketing Support: https://unimarg.in/digital-marketing.html
+- Internationalization: https://unimarg.in/internationalization.html
 
 ## Pages
 
 - [Home](https://unimarg.in/): overview and service summary
-- [Services](https://unimarg.in/services.html): ten practice areas with deliverables, FAQ
+- [Services](https://unimarg.in/services.html): overview hub linking seven advisory-practice pages
 - [Clients](https://unimarg.in/clients.html): client institutions and engagement types
 - [About](https://unimarg.in/about.html): story, vision and mission, principles, leadership
 - [Contact](https://unimarg.in/contact.html): address, phone, email, enquiry form
