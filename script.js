@@ -27,6 +27,13 @@ if (form) {
   const btn    = form.querySelector('button[type="submit"]');
   const btnLabel = btn.textContent;
 
+  // Pre-select the topic when arriving from a service page (contact.html?topic=slug)
+  const tParam = new URLSearchParams(location.search).get('topic');
+  if (tParam) {
+    const opt = [...field('topic').options].find(o => o.value === tParam);
+    if (opt) opt.selected = true;
+  }
+
   const fail = (msg) => {
     errBox.innerHTML = msg;
     errBox.style.display = 'block';
@@ -64,9 +71,9 @@ if (form) {
           organisation: field('org').value.trim(),
           email:        email,
           phone:        field('phone').value.trim(),
-          topic:        field('topic').value,
+          topic:        field('topic').selectedOptions[0].text,
           message:      field('msg').value.trim(),
-          _subject:     'Website enquiry: ' + field('topic').value
+          _subject:     'Website enquiry: ' + field('topic').selectedOptions[0].text
         })
       });
 
