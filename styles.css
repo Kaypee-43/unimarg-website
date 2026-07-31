@@ -16,7 +16,7 @@
   --sans:"Archivo",system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{font-family:var(--sans);color:var(--body);background:var(--paper);line-height:1.65;font-size:16.5px}
 img{max-width:100%;display:block}
