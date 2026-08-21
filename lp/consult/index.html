@@ -375,7 +375,8 @@ footer a{color:#CFE0E8;text-decoration:underline}
 
 /* ---------------- Lead form ---------------- */
 (() => {
-  const FORM_ENDPOINT='https://formspree.io/f/xgoglqyd';   // reuses UniMarg inbox (info@unimarg.in)
+  const FUNCTION_ENDPOINT='https://zpbfztddhneymyvdnyav.supabase.co/functions/v1/bd-capture-lead'; // writes to BD CRM (bd_leads)
+  const FORM_ENDPOINT='https://formspree.io/f/xgoglqyd';   // best-effort email alert to info@unimarg.in
   const form=document.getElementById('lead');
   if(!form) return;
   const f=(n)=>form.elements.namedItem(n);
@@ -385,6 +386,29 @@ footer a{color:#CFE0E8;text-decoration:underline}
   const btnLabel=btn.textContent;
   const emailOk=(v)=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
   const phoneOk=(v)=>v.replace(/[^\d]/g,'').length>=7;
+
+  /* First-touch attribution: capture once, keep the original source. */
+  const ATTR_KEY='um_attr';
+  function captureAttribution(){
+    const p=new URLSearchParams(location.search);
+    const g=(k)=>p.get(k)||'';
+    const now={
+      utm_source:g('utm_source'), utm_medium:g('utm_medium'),
+      utm_campaign:g('utm_campaign'), utm_term:g('utm_term'),
+      utm_content:g('utm_content'), gclid:g('gclid'),
+      landing_page:location.pathname, referrer:document.referrer||''
+    };
+    if(now.gclid && !now.utm_source){ now.utm_source='google'; now.utm_medium='cpc'; } // Ads auto-tagging only
+    let saved=null;
+    try{ saved=JSON.parse(localStorage.getItem(ATTR_KEY)||'null'); }catch(e){}
+    const hasParams=now.utm_source||now.gclid;
+    if(!saved || (hasParams && !saved.utm_source && !saved.gclid)){
+      saved=now;
+      try{ localStorage.setItem(ATTR_KEY, JSON.stringify(saved)); }catch(e){}
+    }
+    return saved||now;
+  }
+  const attribution=captureAttribution();
 
   const showErr=(name,on)=>{
     const el=form.elements.namedItem(name);
@@ -429,22 +453,42 @@ footer a{color:#CFE0E8;text-decoration:underline}
     if(firstBad){ form.elements.namedItem(firstBad).focus(); return; }
 
     btn.disabled=true;btn.textContent='Sending\u2026';
+
+    const payload={
+      name:    f('name').value.trim(),
+      org:     f('org').value.trim(),
+      role:    f('role').value.trim(),
+      phone:   f('phone').value.trim(),
+      email:   f('email').value.trim(),
+      interest:f('topic').selectedOptions[0].text,
+      consent: f('consent').checked,
+      utm_source:attribution.utm_source, utm_medium:attribution.utm_medium,
+      utm_campaign:attribution.utm_campaign, utm_term:attribution.utm_term,
+      utm_content:attribution.utm_content, gclid:attribution.gclid,
+      landing_page:attribution.landing_page, referrer:attribution.referrer
+    };
+
     try{
-      const res=await fetch(FORM_ENDPOINT,{
+      const res=await fetch(FUNCTION_ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      const out=await res.json().catch(()=>({}));
+      if(!res.ok || !out.ok) throw new Error('capture failed');
+
+      // Best-effort email alert. Failure here does not affect the user.
+      fetch(FORM_ENDPOINT,{
         method:'POST',
         headers:{'Accept':'application/json','Content-Type':'application/json'},
         body:JSON.stringify({
-          name:         f('name').value.trim(),
-          organisation: f('org').value.trim(),
-          role:         f('role').value.trim(),
-          phone:        f('phone').value.trim(),
-          email:        f('email').value.trim(),
-          topic:        f('topic').selectedOptions[0].text,
-          source:       'google-ads-lp',
-          _subject:     'Campaign lead: ' + f('topic').selectedOptions[0].text
+          name:payload.name, organisation:payload.org, role:payload.role,
+          phone:payload.phone, email:payload.email, topic:payload.interest,
+          source:payload.utm_source||'google-ads-lp',
+          _subject:'Campaign lead: '+payload.interest
         })
-      });
-      if(!res.ok) throw new Error('Status '+res.status);
+      }).catch(()=>{});
+
       form.reset();
       okBox.style.display='block';
       btn.textContent='Enquiry Sent';
@@ -456,6 +500,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
     }
   });
 })();
+
 </script>
 </body>
 </html>
