@@ -89,16 +89,17 @@ header{border-bottom:1px solid var(--line);background:#fff}
 .chip .dot{color:var(--blue)}
 
 /* form card */
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
 .card h2{font-size:1.4rem;margin-bottom:4px}
-.card .sub{font-size:.95rem;color:var(--grey);margin-bottom:18px}
-label{display:block;font-family:var(--display);font-weight:600;color:var(--ink);font-size:.9rem;margin:14px 0 6px}
-label:first-of-type{margin-top:0}
+.card .sub{font-size:.95rem;color:var(--grey);margin-bottom:6px}
+label{display:block;font-family:var(--display);font-weight:600;color:var(--ink);font-size:.9rem;margin:12px 0 6px}
 .req{color:var(--blue-dark)}
+.field{min-width:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
 input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,159,218,.15)}
 input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#D96A6A}
-textarea{resize:vertical;min-height:84px}
+textarea{resize:vertical;min-height:68px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 6px}
 .consent input{width:20px;height:20px;margin-top:3px;flex:0 0 auto}
@@ -169,6 +170,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
 }
 @media(max-width:560px){
   section{padding:54px 0}
+  .row{grid-template-columns:1fr}
   .grid-4{grid-template-columns:1fr}
   .cookie-actions .btn{flex:1 1 auto;text-align:center}
 }
@@ -206,24 +208,34 @@ footer a{color:#CFE0E8;text-decoration:underline}
         <!-- honeypot (bots fill this, humans do not) -->
         <div class="hp" aria-hidden="true"><label>Leave this empty</label><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
 
-        <label for="name">Full name <span class="req">*</span></label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-        <p class="field-err" data-for="name">Please enter your name.</p>
+        <div class="row">
+          <div class="field">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <p class="field-err" data-for="name">Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="role">Your role</label>
+            <input id="role" name="role" type="text" autocomplete="organization-title" placeholder="e.g. Chairman, Trustee, Director">
+          </div>
+        </div>
 
         <label for="org">Institution / Organisation <span class="req">*</span></label>
         <input id="org" name="org" type="text" autocomplete="organization" required>
         <p class="field-err" data-for="org">Please enter your institution or organisation.</p>
 
-        <label for="role">Your role</label>
-        <input id="role" name="role" type="text" autocomplete="organization-title" placeholder="e.g. Chairman, Trustee, Director">
-
-        <label for="phone">Mobile <span class="req">*</span></label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
-        <p class="field-err" data-for="phone">Please enter a valid mobile number.</p>
-
-        <label for="email">Email <span class="req">*</span></label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-        <p class="field-err" data-for="email">Please enter a valid email address.</p>
+        <div class="row">
+          <div class="field">
+            <label for="phone">Mobile <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+            <p class="field-err" data-for="phone">Please enter a valid mobile number.</p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <p class="field-err" data-for="email">Please enter a valid email address.</p>
+          </div>
+        </div>
 
         <label for="topic">Area of interest <span class="req">*</span></label>
         <select id="topic" name="topic" required>
