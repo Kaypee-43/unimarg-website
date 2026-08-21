@@ -89,19 +89,19 @@ header{border-bottom:1px solid var(--line);background:#fff}
 .chip .dot{color:var(--blue)}
 
 /* form card */
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
 .card h2{font-size:1.4rem;margin-bottom:4px}
-.card .sub{font-size:.95rem;color:var(--grey);margin-bottom:6px}
-label{display:block;font-family:var(--display);font-weight:600;color:var(--ink);font-size:.9rem;margin:12px 0 6px}
+.card .sub{font-size:.95rem;color:var(--grey);margin-bottom:2px}
+label{display:block;font-family:var(--display);font-weight:600;color:var(--ink);font-size:.9rem;margin:9px 0 4px}
 .req{color:var(--blue-dark)}
 .field{min-width:0}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
+input,select,textarea{width:100%;padding:10px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,159,218,.15)}
 input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#D96A6A}
-textarea{resize:vertical;min-height:68px}
+textarea{resize:vertical;min-height:54px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 6px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:12px 0 4px}
 .consent input{width:20px;height:20px;margin-top:3px;flex:0 0 auto}
 .consent label{margin:0;font-family:var(--sans);font-weight:400;font-size:.86rem;color:var(--body)}
 .consent a{color:var(--blue-dark);text-decoration:underline}
@@ -109,7 +109,7 @@ textarea{resize:vertical;min-height:68px}
 .field-err.show{display:block}
 #form-ok{display:none;margin-top:16px;background:var(--tint);border:1px solid var(--blue);border-radius:10px;padding:16px;color:var(--ink);font-weight:500}
 #form-err{display:none;margin-top:16px;background:#FDF3F3;border:1px solid #D96A6A;border-radius:10px;padding:14px;color:#8C2F2F;font-weight:500}
-.form-note{font-size:.82rem;color:var(--grey);margin-top:14px;text-align:center}
+.form-note{font-size:.82rem;color:var(--grey);margin-top:10px;text-align:center}
 
 /* sections */
 section{padding:72px 0}
@@ -194,7 +194,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
       <a href="#enquiry" class="btn btn-blue">Request a Consultation</a>
       <div class="chips">
         <span class="chip"><span class="dot">·</span> UGC · AICTE · NAAC · NBA · NIRF</span>
-        <span class="chip"><span class="dot">·</span> Institute Development</span>
+        <span class="chip"><span class="dot">·</span> Concept to Commissioning</span>
         <span class="chip"><span class="dot">·</span> Advisory · Execution · Milestone Delivery</span>
       </div>
     </div>
@@ -251,9 +251,6 @@ footer a{color:#CFE0E8;text-decoration:underline}
         </select>
         <p class="field-err" data-for="topic">Please select an area of interest.</p>
 
-        <label for="msg">Anything you would like to add?</label>
-        <textarea id="msg" name="msg"></textarea>
-
         <div class="consent">
           <input id="consent" name="consent" type="checkbox" required>
           <label for="consent">I agree to be contacted by UniMarg about my enquiry and accept the <a href="/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>. <span class="req">*</span></label>
@@ -263,7 +260,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
         <div id="form-ok" role="status">Thank you. Your enquiry has reached our team, and we will be in touch shortly.</div>
         <div id="form-err" role="alert"></div>
 
-        <button type="submit" class="btn btn-gold btn-block" style="margin-top:18px">Submit Enquiry</button>
+        <button type="submit" class="btn btn-gold btn-block" style="margin-top:14px">Submit Enquiry</button>
         <p class="form-note">We reply to qualified institutional enquiries. Your details are used only to respond to you.</p>
       </form>
     </div>
@@ -443,7 +440,6 @@ footer a{color:#CFE0E8;text-decoration:underline}
           phone:        f('phone').value.trim(),
           email:        f('email').value.trim(),
           topic:        f('topic').selectedOptions[0].text,
-          message:      f('msg').value.trim(),
           source:       'google-ads-lp',
           _subject:     'Campaign lead: ' + f('topic').selectedOptions[0].text
         })
