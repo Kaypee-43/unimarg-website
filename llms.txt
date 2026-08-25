@@ -32,6 +32,8 @@ Seven advisory practices, each with a dedicated page:
 - [Services](https://unimarg.in/services.html): overview hub linking seven advisory-practice pages
 - [Clients](https://unimarg.in/clients.html): client institutions and engagement types
 - [Case Studies](https://unimarg.in/case-studies.html): anonymised engagement outcomes and approach
+- [Case study: institute establishment](https://unimarg.in/case-study-establishment.html): concept to first batch, AICTE approval and GTU affiliation
+- [Case study: admissions turnaround](https://unimarg.in/case-study-admissions.html): 20 to a full intake of 120, national applicant pool
 - [About](https://unimarg.in/about.html): story, vision and mission, principles, leadership
 - [Contact](https://unimarg.in/contact.html): address, phone, email, enquiry form
 
