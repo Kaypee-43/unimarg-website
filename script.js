@@ -188,3 +188,27 @@ if (form) {
     { threshold: 0 }
   ).observe(hero);
 })();
+
+// ---------- Inject "Case Studies" nav item ----------
+// Kept here (single shared file) so the tab appears on every page without editing
+// each header. Placed right after the Clients link; marks itself current on its page.
+(function () {
+  const nav = document.querySelector('.nav-links');
+  if (!nav || nav.querySelector('a[href="case-studies.html"]')) return;
+
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.href = 'case-studies.html';
+  a.textContent = 'Case Studies';
+
+  const path = location.pathname.replace(/\/$/, '');
+  if (path.endsWith('/case-studies') || path.endsWith('/case-studies.html')) {
+    a.setAttribute('aria-current', 'page');
+    nav.querySelectorAll('a[aria-current="page"]').forEach(o => { if (o !== a) o.removeAttribute('aria-current'); });
+  }
+  li.appendChild(a);
+
+  const clients = nav.querySelector('a[href="clients.html"]');
+  if (clients) clients.parentElement.insertAdjacentElement('afterend', li);
+  else nav.insertBefore(li, nav.lastElementChild);
+})();
