@@ -202,7 +202,7 @@ if (form) {
   a.textContent = 'Case Studies';
 
   const path = location.pathname.replace(/\/$/, '');
-  if (path.endsWith('/case-studies') || path.endsWith('/case-studies.html')) {
+  if (/\/case-stud/.test(path)) {
     a.setAttribute('aria-current', 'page');
     nav.querySelectorAll('a[aria-current="page"]').forEach(o => { if (o !== a) o.removeAttribute('aria-current'); });
   }
