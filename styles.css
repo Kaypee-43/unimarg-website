@@ -46,8 +46,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .nav{display:flex;align-items:center;justify-content:space-between;height:88px}
 .logo{display:flex;align-items:center;flex:0 0 auto}
 .logo img{height:60px;width:auto;display:block}
-.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
-.nav-links a{font-weight:500;color:var(--ink);font-size:.98rem}
+.nav-links{display:flex;align-items:center;gap:18px;list-style:none}
+.nav-links a{font-weight:500;color:var(--ink);font-size:.92rem;white-space:nowrap}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--blue-dark)}
 .nav-links a[aria-current]{border-bottom:2px solid var(--gold);padding-bottom:3px}
 .btn{display:inline-block;font-family:var(--display);font-weight:600;font-size:.98rem;padding:13px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s}
@@ -486,3 +486,42 @@ header.scrolled{
 .cookie-actions{display:flex;gap:12px;flex-wrap:wrap}
 .cookie-actions .btn{min-height:44px}
 @media(max-width:520px){.cookie-actions .btn{flex:1 1 auto;text-align:center}}
+
+
+/* Header fit: use the mobile menu below 1000px so the nav bar never crowds or wraps. */
+@media (min-width:641px) and (max-width:1000px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:88px;left:0;right:0;background:#fff;flex-direction:column;padding:22px;border-bottom:1px solid var(--line);gap:18px}
+  .nav-links.open{display:flex}
+}
+
+/* Knowledge Centre: article reading column + listing/segment cards. */
+.csx{max-width:768px}
+.csx h2{margin:2rem 0 .6rem}
+.csx h3{margin:1.4rem 0 .35rem}
+.csx p,.csx ul,.csx ol{margin:0 0 1rem}
+.csx ul,.csx ol{padding-left:1.2rem}
+.csx li{margin:.3rem 0}
+.cs-head{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin:0 0 22px}
+.eb{display:inline-block;font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-dark);margin-bottom:10px}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.cs-card{display:block;padding:30px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.cs-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(22,48,62,.12)}
+.cs-card h2,.cs-card h3{font-size:1.3rem;margin:.15rem 0 .5rem;color:var(--ink)}
+.cs-card p{color:var(--body);margin:0 0 .85rem}
+.cs-more{font-family:var(--display);font-weight:600;color:var(--blue-dark)}
+
+/* Knowledge Centre dropdown (Guides / Case Studies). Desktop: hover/focus; mobile: static indented. */
+.nav-links .has-sub{position:relative;display:flex;align-items:center;align-self:stretch}
+.nav-links .subnav{position:absolute;top:100%;left:0;min-width:190px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 16px 40px rgba(22,48,62,.12);padding:8px;margin:0;list-style:none;display:none;z-index:60}
+.nav-links .has-sub:hover > .subnav,
+.nav-links .has-sub:focus-within > .subnav{display:block}
+.nav-links .subnav li{margin:0}
+.nav-links .subnav a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:.92rem;font-weight:500}
+.nav-links .subnav a:hover,.nav-links .subnav a:focus{background:var(--paper);color:var(--blue-dark)}
+#guides,#case-studies{scroll-margin-top:104px}
+@media (max-width:1000px){
+  .nav-links .has-sub{display:block;align-self:auto;position:static}
+  .nav-links .subnav{position:static;display:block;border:0;box-shadow:none;background:transparent;padding:2px 0 4px 14px;min-width:0}
+  .nav-links .subnav a{padding:6px 0}
+}

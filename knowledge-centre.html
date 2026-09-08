@@ -39,7 +39,7 @@ gtag('config', 'G-KMBP1VBRB7');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260730">
+<link rel="stylesheet" href="/styles.css?v=20260909">
 
 <script type="application/ld+json">
 {
@@ -78,7 +78,13 @@ gtag('config', 'G-KMBP1VBRB7');
       <li><a href="clients.html">Clients</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="knowledge-centre.html" aria-current="page">Knowledge Centre</a></li>
+      <li class="has-sub">
+        <a href="knowledge-centre.html" aria-current="page">Knowledge Centre</a>
+        <ul class="subnav">
+          <li><a href="knowledge-centre.html#guides">Guides</a></li>
+          <li><a href="knowledge-centre.html#case-studies">Case Studies</a></li>
+        </ul>
+      </li>
       <li><a class="btn btn-blue" href="contact.html?topic=other#enquiry">Start a Conversation</a></li>
     </ul>
   </div>
@@ -89,29 +95,60 @@ gtag('config', 'G-KMBP1VBRB7');
     <p class="eyebrow">Knowledge Centre</p>
     <h1>Guidance for building and running institutions.</h1>
     <svg class="marg-line" viewBox="0 0 170 12" aria-hidden="true"><path d="M2 9 C 40 2, 70 11, 100 6 S 150 3, 168 7"/></svg>
-    <p class="lead">Practical, decision-maker-level guides on the questions promoters, trustees and institutional leaders actually face: establishing a university, preparing for accreditation, and implementing regulatory change. Written by the UniMarg team from live project experience.</p>
+    <p class="lead">Practical, decision-maker-level guides and real project case studies on the questions promoters, trustees and institutional leaders actually face: establishing a university, preparing for accreditation, and implementing regulatory change. Written by the UniMarg team from live project experience.</p>
   </div>
 </section>
 
-<section>
+<section id="guides">
   <div class="wrap">
+    <h2 class="cs-head">Guides</h2>
     <div class="cs-grid">
 
       <a class="cs-card reveal" href="kc-establishing-private-university-gujarat.html">
         <span class="eb">Establishment &middot; Guide</span>
-        <h2>How to establish a private university in Gujarat</h2>
+        <h3>How to establish a private university in Gujarat</h3>
         <p>The end-to-end pathway for promoters and trusts: sponsoring body, feasibility and project report, land and infrastructure, the State approval route, and UGC recognition, in the order they actually happen.</p>
         <span class="cs-more">Read the guide &rarr;</span>
       </a>
 
-      <!-- POST CARD TEMPLATE: duplicate this block per new post, update href, eyebrow, heading and summary.
+      <!-- GUIDE CARD TEMPLATE: duplicate this block per new guide, update href, eyebrow, heading and summary.
       <a class="cs-card reveal" href="kc-naac-ssr-cycle.html">
         <span class="eb">Accreditation &middot; Guide</span>
-        <h2>Headline of the post</h2>
-        <p>One or two sentence summary of the post.</p>
+        <h3>Headline of the guide</h3>
+        <p>One or two sentence summary of the guide.</p>
         <span class="cs-more">Read the guide &rarr;</span>
       </a>
       -->
+
+    </div>
+  </div>
+</section>
+
+<section class="band-tint" id="case-studies">
+  <div class="wrap">
+    <h2 class="cs-head">Case Studies</h2>
+    <div class="cs-grid">
+
+      <a class="cs-card reveal" href="case-study-establishment.html">
+        <span class="eb">Case 01 &middot; Institutional Establishment</span>
+        <h3>Building a new institute from the ground up</h3>
+        <p>A first-time promoter with land, capital and a vision, but no institution. UniMarg ran site selection, AICTE approval, GTU affiliation, infrastructure, faculty and first-batch admissions in parallel.</p>
+        <span class="cs-more">Read case study &rarr;</span>
+      </a>
+
+      <a class="cs-card reveal" href="case-study-admissions.html">
+        <span class="eb">Case 02 &middot; Market Outreach &amp; Admissions</span>
+        <h3>From 20 admissions to a full intake of 120</h3>
+        <p>A specialised technology and AI institute with a strong parent brand but a stalled admissions function. UniMarg took over the entire cycle and rebuilt it into a national, full-capacity intake.</p>
+        <span class="cs-more">Read case study &rarr;</span>
+      </a>
+
+      <a class="cs-card reveal" href="case-study-establishment-global.html">
+        <span class="eb">Case 03 &middot; Strategic Advisory</span>
+        <h3>From a single campus plan to a national India entry strategy</h3>
+        <p>An international education group set out to build its first campus in India. Partway through the work a second regulatory route opened, and the more valuable question turned out to be one nobody had asked at the start.</p>
+        <span class="cs-more">Read case study &rarr;</span>
+      </a>
 
     </div>
   </div>
