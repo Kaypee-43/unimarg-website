@@ -54,7 +54,12 @@ gtag('config', 'G-KMBP1VBRB7');
 .metric .n .u{color:var(--gold-deep);font-size:.58em;font-weight:700}
 .metric .l{display:block;margin-top:9px;font-size:.79rem;color:var(--body);line-height:1.35}
 .csx h2.sec{font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--blue-dark);margin:38px 0 12px}
-.csx h3.step{font-size:1.05rem;color:var(--blue-dark);margin:24px 0 6px}
+.csx ol.sol{list-style:none;counter-reset:sol;padding:0;margin:8px 0 0}
+.csx ol.sol>li{counter-increment:sol;position:relative;padding:0 0 0 52px;margin:0 0 22px}
+.csx ol.sol>li::before{content:counter(sol,decimal-leading-zero);position:absolute;left:0;top:0;font-family:var(--display);font-weight:700;font-size:1.05rem;color:#fff;background:var(--blue);width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.csx ol.sol h3{font-size:1.02rem;color:var(--blue-dark);margin:4px 0 6px}
+.csx ol.sol p{margin:0 0 10px}
+.csx ol.sol p:last-child{margin:0}
 .csx p{font-size:1rem;line-height:1.75}
 .csx ul.plain{list-style:none;padding:0;margin:6px 0 0}
 .csx ul.plain li{position:relative;padding:0 0 0 26px;margin:0 0 12px;font-size:1rem;line-height:1.7}
@@ -64,7 +69,7 @@ gtag('config', 'G-KMBP1VBRB7');
 .csx-result{background:var(--tint);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin-top:14px}
 .csx-note{border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:#fff;margin-top:18px}
 .csx-note p{margin:0;font-size:.82rem;color:var(--grey);line-height:1.5}
-@media(max-width:640px){.csx-metrics{grid-template-columns:1fr}.csx-result{padding:20px}}
+@media(max-width:640px){.csx-metrics{grid-template-columns:1fr}.csx-result{padding:20px}.csx ol.sol>li{padding-left:46px}}
 </style>
 
 <script type="application/ld+json">
@@ -161,23 +166,30 @@ gtag('config', 'G-KMBP1VBRB7');
 
       <h2 class="sec">Solutions</h2>
 
-      <h3 class="step">We worked on registration and viability at the same time</h3>
-      <p>We took the group through the entity registration the framework requires, and built the conceptual plan, the course portfolio suited to the financial centre and the administrative structure alongside it.</p>
-      <p>Running in parallel was the financial and funding model, and that is where the engagement turned. Building the model meant putting real numbers against enrolment, fee levels and the cost of operating a campus inside the zone. The registration work could be completed. The enrolment assumption could not be evidenced, and no funding model is stronger than the demand assumption sitting underneath it.</p>
-
-      <h3 class="step">We put the two routes side by side</h3>
-      <p>Rather than treat the new framework as a competitor to the work already done, we assessed both properly.</p>
-      <ul class="plain">
-        <li>The financial centre route carried genuine tax advantages, available for a defined period, with the campus located inside the zone.</li>
-        <li>The Commission's route carried no equivalent tax treatment, but allowed an institution to acquire its own land and build its own campus anywhere in India, with approval granted once rather than on a renewable term.</li>
-      </ul>
-      <p>For a group whose binding constraint was student demand rather than tax exposure, the second difference weighed more heavily than the first.</p>
-
-      <h3 class="step">We moved the question to where the students are</h3>
-      <p>The useful question was no longer whether a campus could be approved, but where enough students would come from to fill one. Established student movement patterns pointed consistently to a small set of metropolitan markets. We assessed Delhi, Bengaluru, Mumbai and Chennai against the group's likely programme mix and fee position, and travelled to Delhi to inspect properties and understand what an owned campus would realistically cost and look like there.</p>
-
-      <h3 class="step">We advised the group to hold, and to widen the search</h3>
-      <p>Our recommendation was to complete the registrations, hold the campus application at that stage, and open the search to other locations. The reasoning was about sequence rather than destination. The case for any single site would be far easier to build once the first cohorts had produced real admissions evidence, and a newly opened national route deserved proper assessment before capital went into any one location.</p>
+      <ol class="sol">
+        <li>
+          <h3>We worked on registration and viability at the same time</h3>
+          <p>We took the group through the entity registration the framework requires, and built the conceptual plan, the course portfolio suited to the financial centre and the administrative structure alongside it.</p>
+          <p>Running in parallel was the financial and funding model, and that is where the engagement turned. Building the model meant putting real numbers against enrolment, fee levels and the cost of operating a campus inside the zone. The registration work could be completed. The enrolment assumption could not be evidenced, and no funding model is stronger than the demand assumption sitting underneath it.</p>
+        </li>
+        <li>
+          <h3>We put the two routes side by side</h3>
+          <p>Rather than treat the new framework as a competitor to the work already done, we assessed both properly.</p>
+          <ul class="plain">
+            <li>The financial centre route carried genuine tax advantages, available for a defined period, with the campus located inside the zone.</li>
+            <li>The Commission's route carried no equivalent tax treatment, but allowed an institution to acquire its own land and build its own campus anywhere in India, with approval granted once rather than on a renewable term.</li>
+          </ul>
+          <p>For a group whose binding constraint was student demand rather than tax exposure, the second difference weighed more heavily than the first.</p>
+        </li>
+        <li>
+          <h3>We moved the question to where the students are</h3>
+          <p>The useful question was no longer whether a campus could be approved, but where enough students would come from to fill one. Established student movement patterns pointed consistently to a small set of metropolitan markets. We assessed Delhi, Bengaluru, Mumbai and Chennai against the group's likely programme mix and fee position, and travelled to Delhi to inspect properties and understand what an owned campus would realistically cost and look like there.</p>
+        </li>
+        <li>
+          <h3>We advised the group to hold, and to widen the search</h3>
+          <p>Our recommendation was to complete the registrations, hold the campus application at that stage, and open the search to other locations. The reasoning was about sequence rather than destination. The case for any single site would be far easier to build once the first cohorts had produced real admissions evidence, and a newly opened national route deserved proper assessment before capital went into any one location.</p>
+        </li>
+      </ol>
 
       <h2 class="sec">Result</h2>
       <div class="csx-result">
