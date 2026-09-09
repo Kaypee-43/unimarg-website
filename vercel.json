@@ -13,8 +13,8 @@
     { "source": "/service", "destination": "/services.html", "permanent": true },
     { "source": "/about-us", "destination": "/about.html", "permanent": true },
     { "source": "/contact-us", "destination": "/contact.html", "permanent": true },
-    { "source": "/case-studies.html", "destination": "/knowledge-centre.html#case-studies", "permanent": true },
-    { "source": "/case-studies", "destination": "/knowledge-centre.html#case-studies", "permanent": true }
+    { "source": "/case-studies.html", "destination": "/knowledge-centre.html", "permanent": true },
+    { "source": "/case-studies", "destination": "/knowledge-centre.html", "permanent": true }
   ],
   "headers": [
     {
