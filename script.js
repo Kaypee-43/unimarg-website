@@ -6,6 +6,11 @@ if (toggle && links) {
     const open = links.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  // Close the menu after tapping any link, including same-page #anchor links (Guides, Case Studies)
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
 }
 
 // ---------- Scroll reveal ----------
