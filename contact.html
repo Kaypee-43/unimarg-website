@@ -190,35 +190,40 @@ gtag('config', 'G-KMBP1VBRB7');
       <iframe title="UniMarg office location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4684.961296432217!2d72.5412793!3d23.113882600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e812a90528fc1%3A0x9df7042761083100!2sUniMarg!5e1!3m2!1sen!2sin!4v1727777525453!5m2!1sen!2sin" style="width:100%;height:260px;border:0;border-radius:14px;margin-top:8px" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <h2 class="sr-only">Send an enquiry</h2>
-    <form id="enquiry" novalidate>
+        <form id="enquiry" novalidate>
       <label for="name">Full Name</label>
       <input id="name" name="name" type="text" placeholder="Your name" required>
 
       <label for="org">Organisation / Institution</label>
-      <input id="org" name="org" type="text" placeholder="Trust, university, college or company">
+      <input id="org" name="org" type="text" placeholder="Trust, university, college or company" required>
 
       <label for="email">Email</label>
       <input id="email" name="email" type="email" placeholder="you@example.com" required>
 
       <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" placeholder="+91">
+      <input id="phone" name="phone" type="tel" placeholder="+91" required>
 
       <label for="topic">I want to discuss</label>
       <select id="topic" name="topic">
-        <option value="establishment">Institutional Establishment Support</option>
+        <option value="establishment">Institutional Establishment</option>
         <option value="outreach">Market Outreach &amp; Admissions</option>
         <option value="compliance">Recognition, Accreditation &amp; Regulatory Approvals</option>
-        <option value="advisory">Strategic Advisory Support</option>
+        <option value="advisory">Strategic Advisory</option>
         <option value="search">Academic &amp; Leadership Search</option>
-        <option value="branding">Digital Marketing Support</option>
+        <option value="branding">Digital Marketing</option>
         <option value="international">Internationalization</option>
-        <option value="other">Something else</option>
+        <option value="other">General / Not sure</option>
       </select>
 
       <label for="msg">Message</label>
       <textarea id="msg" name="msg" rows="4" placeholder="Briefly describe your project or requirement"></textarea>
 
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-top:4px">
+        <input id="consent" name="consent" type="checkbox" required style="margin-top:3px;width:auto">
+        <span>I agree to be contacted by UniMarg about my enquiry and accept the <a href="privacy-policy.html">Privacy Policy</a>.</span>
+      </label>
 
       <button class="btn btn-blue" type="submit">Send Enquiry</button>
       <div id="form-ok" role="status">Thank you. Your enquiry has been noted. We will get back to you within one working day.</div>
