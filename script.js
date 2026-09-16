@@ -20,9 +20,9 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---------- Contact form ----------
-// SETUP: replace YOUR_FORM_ID below with the ID from your Formspree dashboard.
-// To move to another provider later, only this one line needs to change.
-const FORM_ENDPOINT = 'https://formspree.io/f/xgoglqyd';
+// Each enquiry is written into the HRMS (Business Dev) and an email alert is sent.
+const FUNCTION_ENDPOINT = 'https://zpbfztddhneymyvdnyav.supabase.co/functions/v1/bd-capture-lead'; // writes to BD CRM (bd_leads)
+const FORM_ENDPOINT     = 'https://formspree.io/f/xgoglqyd'; // email alert to info@unimarg.in
 
 const form = document.getElementById('enquiry');
 if (form) {
@@ -39,10 +39,34 @@ if (form) {
     if (opt) opt.selected = true;
   }
 
+  // First-touch attribution: capture once, keep the original source.
+  const ATTR_KEY = 'um_attr';
+  const attribution = (() => {
+    const p = new URLSearchParams(location.search);
+    const g = (k) => p.get(k) || '';
+    const now = {
+      utm_source: g('utm_source'), utm_medium: g('utm_medium'),
+      utm_campaign: g('utm_campaign'), utm_term: g('utm_term'),
+      utm_content: g('utm_content'), gclid: g('gclid'),
+      landing_page: location.pathname, referrer: document.referrer || ''
+    };
+    if (now.gclid && !now.utm_source) { now.utm_source = 'google'; now.utm_medium = 'cpc'; }
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(ATTR_KEY) || 'null'); } catch (e) {}
+    const hasParams = now.utm_source || now.gclid;
+    if (!saved || (hasParams && !saved.utm_source && !saved.gclid)) {
+      saved = now;
+      try { localStorage.setItem(ATTR_KEY, JSON.stringify(saved)); } catch (e) {}
+    }
+    return saved || now;
+  })();
+
   const fail = (msg) => {
     errBox.innerHTML = msg;
     errBox.style.display = 'block';
   };
+  const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  const phoneOk = (v) => v.replace(/[^\d]/g, '').length >= 7;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -52,37 +76,50 @@ if (form) {
     // Honeypot: bots fill hidden fields, people do not.
     if (field('_gotcha').value) return;
 
-    const name  = field('name').value.trim();
-    const email = field('email').value.trim();
+    const name    = field('name').value.trim();
+    const org     = field('org').value.trim();
+    const phone   = field('phone').value.trim();
+    const email   = field('email').value.trim();
+    const topic   = field('topic').selectedOptions[0].text;
+    const message = field('msg').value.trim();
+    const consent = field('consent').checked;
 
-    if (!name || !email) {
-      fail('Please enter your name and email address.');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      fail('Please enter a valid email address.');
-      return;
-    }
+    if (!name)           { fail('Please enter your name.'); return; }
+    if (!org)            { fail('Please enter your organisation or institution.'); return; }
+    if (!phoneOk(phone)) { fail('Please enter a valid phone number.'); return; }
+    if (!emailOk(email)) { fail('Please enter a valid email address.'); return; }
+    if (!consent)        { fail('Please tick the box to agree to be contacted.'); return; }
 
     btn.disabled = true;
     btn.textContent = 'Sending\u2026';
 
+    // Email alert (best-effort): keeps the inbox notification even if the CRM call fails.
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name, organisation: org, email: email, phone: phone,
+        topic: topic, message: message,
+        _subject: 'Website enquiry: ' + topic
+      })
+    }).catch(() => {});
+
+    // Primary: write the lead into the HRMS (Business Dev).
     try {
-      const res = await fetch(FORM_ENDPOINT, {
+      const res = await fetch(FUNCTION_ENDPOINT, {
         method: 'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:         name,
-          organisation: field('org').value.trim(),
-          email:        email,
-          phone:        field('phone').value.trim(),
-          topic:        field('topic').selectedOptions[0].text,
-          message:      field('msg').value.trim(),
-          _subject:     'Website enquiry: ' + field('topic').selectedOptions[0].text
+          name: name, org: org, phone: phone, email: email,
+          interest: topic, message: message, consent: consent,
+          utm_source: attribution.utm_source, utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign, utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content, gclid: attribution.gclid,
+          landing_page: attribution.landing_page, referrer: attribution.referrer
         })
       });
-
-      if (!res.ok) throw new Error('Status ' + res.status);
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || !out.ok) throw new Error('capture failed');
 
       form.reset();
       okBox.style.display = 'block';
