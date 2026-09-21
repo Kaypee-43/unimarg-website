@@ -25,6 +25,15 @@ gtag('config', 'G-KMBP1VBRB7');
 /* gtag('config', 'AW-XXXXXXXXXX'); */
 </script>
 
+<!-- ============================================================= -->
+<!-- ChatGPT Ads Measurement Pixel (off until cookie consent granted) -->
+<!-- ============================================================= -->
+<script>
+(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+try{ if(localStorage.getItem('um_consent')!=='granted'){ oaiq('consent', false); } }catch(e){ oaiq('consent', false); }
+oaiq("init", { pixelId: "2YnPUjWhieWVeA4yHPH42s" });
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UniMarg | Higher Education Consultancy — Enquiry</title>
 <meta name="description" content="UniMarg partners with universities, colleges, trusts and corporates across establishment, approvals, admissions, advisory, search and internationalization. Request a strategic consultation.">
@@ -355,7 +364,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
   const grant=()=>{ if(window.gtag) gtag('consent','update',{
     'analytics_storage':'granted','ad_storage':'granted',
     'ad_user_data':'granted','ad_personalization':'granted'
-  });};
+  }); try{ if(window.oaiq) oaiq('consent', true); }catch(e){} };
   const saved=localStorage.getItem(KEY);
   if(saved==='granted'){grant();return;}
   if(saved==='denied'){return;}
@@ -440,6 +449,7 @@ footer a{color:#CFE0E8;text-decoration:underline}
       /* AFTER adding your Ads ID above, uncomment and set the send_to label:
       gtag('event','conversion',{'send_to':'AW-XXXXXXXXXX/XXXXXXXXXXXXXXXXXXX'}); */
     }
+    if(window.oaiq){ oaiq('measure','lead_created',{type:'customer_action'}); }
   }
 
   form.addEventListener('submit', async (e)=>{
