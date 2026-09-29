@@ -17,12 +17,11 @@ gtag('js', new Date());
 gtag('config', 'G-KMBP1VBRB7');
 
 /* =============================================================== */
-/* GOOGLE ADS CONVERSION  —  SETUP REQUIRED                        */
-/* Replace AW-XXXXXXXXXX with your Google Ads Conversion ID, then  */
-/* uncomment the line below. The matching event snippet fires on   */
-/* successful form submit (see reportConversion() near page end).  */
+/* GOOGLE ADS CONVERSION                                           */
+/* Account AW-18480187105. Event snippet fires on successful form  */
+/* submit (see reportConversion() near page end).                  */
 /* =============================================================== */
-/* gtag('config', 'AW-XXXXXXXXXX'); */
+gtag('config', 'AW-18480187105');
 </script>
 
 <!-- ============================================================= -->
@@ -442,12 +441,11 @@ footer a{color:#CFE0E8;text-decoration:underline}
   });
   f('consent').addEventListener('change',()=>showErr('consent',!valid('consent')));
 
-  // Fires the Google Ads conversion once the ID is wired in above.
+  // Fires the Google Ads conversion on successful lead submit.
   function reportConversion(){
     if(window.gtag){
       gtag('event','generate_lead',{'currency':'INR','value':0});
-      /* AFTER adding your Ads ID above, uncomment and set the send_to label:
-      gtag('event','conversion',{'send_to':'AW-XXXXXXXXXX/XXXXXXXXXXXXXXXXXXX'}); */
+      gtag('event','conversion',{'send_to':'AW-18480187105/O8MGCOzZkokdEOGNhexE','value':1.0,'currency':'INR'});
     }
     if(window.oaiq){ oaiq('measure','lead_created',{type:'customer_action'}); }
   }
