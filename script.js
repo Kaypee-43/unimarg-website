@@ -127,7 +127,7 @@ if (form) {
       form.reset();
       okBox.style.display = 'block';
       btn.textContent = 'Enquiry Sent';
-      if (window.gtag) gtag('event','conversion',{'send_to':'AW-18480187105/O8MGCOzZkokdEOGNhexE','value':1.0,'currency':'INR'});
+      if (window.gtag) gtag('event','conversion',{'send_to':'AW-18480187105/O8MGCOzZkokdEOGNhexE','value':0,'currency':'INR'});
     } catch (err) {
       btn.disabled = false;
       btn.textContent = btnLabel;
