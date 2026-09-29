@@ -13,6 +13,9 @@ if (toggle && links) {
   }));
 }
 
+// ---------- Google Ads (conversion account; event fires on form success below) ----------
+if (window.gtag) gtag('config', 'AW-18480187105');
+
 // ---------- Scroll reveal ----------
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -124,6 +127,7 @@ if (form) {
       form.reset();
       okBox.style.display = 'block';
       btn.textContent = 'Enquiry Sent';
+      if (window.gtag) gtag('event','conversion',{'send_to':'AW-18480187105/O8MGCOzZkokdEOGNhexE','value':1.0,'currency':'INR'});
     } catch (err) {
       btn.disabled = false;
       btn.textContent = btnLabel;
@@ -154,7 +158,7 @@ if (form) {
 (() => {
   const KEY = 'um_consent';
   const saved = localStorage.getItem(KEY);
-  const grant = () => { if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted' }); };
+  const grant = () => { if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted', 'ad_user_data': 'granted', 'ad_personalization': 'granted' }); };
   if (saved === 'granted') { grant(); return; }
   if (saved === 'denied') { return; }
   const bar = document.createElement('div');
@@ -162,7 +166,7 @@ if (form) {
   bar.setAttribute('role', 'dialog');
   bar.setAttribute('aria-label', 'Cookie consent');
   bar.innerHTML =
-    '<p>We use Google Analytics cookies to see how visitors use this site. No analytics cookies are set unless you accept. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>' +
+    '<p>We use analytics and advertising cookies to see how visitors use this site and to measure our ads. No such cookies are set unless you accept. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>' +
     '<div class="cookie-actions"><button type="button" class="btn btn-blue" data-c="accept">Accept</button><button type="button" class="btn btn-ghost" data-c="decline">Decline</button></div>';
   bar.addEventListener('click', (e) => {
     const b = e.target.closest('[data-c]');
