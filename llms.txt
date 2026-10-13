@@ -8,7 +8,7 @@
 ## About
 
 - Legal/trading name: UniMarg Higher Education Consultancy
-- Location: 812, Ganesh Glory, Jagatpur Road, Off Sarkhej-Gandhinagar Highway, Jagatpur, Ahmedabad, Gujarat 382481, India
+- Location: 812, Ganesh Glory, Jagatpur Road, Off Sarkhej-Gandhinagar Highway, Jagatpur, Ahmedabad, Gujarat 382470, India
 - Email: info@unimarg.in
 - Phone: +91 79 3582 1805
 - Co-Founders: Satya Prakash Tiwary, Kandarp Pandya, Manthan Velani
@@ -30,12 +30,23 @@ Seven advisory practices, each with a dedicated page:
 
 - [Home](https://unimarg.in/): overview and service summary
 - [Services](https://unimarg.in/services.html): overview hub linking seven advisory-practice pages
+- [Education Consultants in Ahmedabad](https://unimarg.in/education-consultants-ahmedabad.html): local overview of the firm and its services in Ahmedabad
 - [Clients](https://unimarg.in/clients.html): client institutions and engagement types
-- [Case Studies](https://unimarg.in/case-studies.html): anonymised engagement outcomes and approach
-- [Case study: institute establishment](https://unimarg.in/case-study-establishment.html): concept to first batch, AICTE approval and GTU affiliation
-- [Case study: admissions turnaround](https://unimarg.in/case-study-admissions.html): 20 to a full intake of 120, national applicant pool
+- [Knowledge Centre](https://unimarg.in/knowledge-centre.html): hub for guides and case studies
 - [About](https://unimarg.in/about.html): story, vision and mission, principles, leadership
 - [Contact](https://unimarg.in/contact.html): address, phone, email, enquiry form
+
+## Guides
+
+- [Establishing a private university in Gujarat](https://unimarg.in/kc-establishing-private-university-gujarat.html): who can apply, the conditions, fees, endowment and deadlines
+- [Establishing a private university in Madhya Pradesh](https://unimarg.in/kc-establishing-private-university-madhya-pradesh.html): the approval route after the July 2026 reform
+- [Deemed university vs state private university](https://unimarg.in/kc-deemed-university-vs-state-private-university.html): which route applies to a project, and why
+
+## Case studies
+
+- [Institute establishment](https://unimarg.in/case-study-establishment.html): concept to first batch, AICTE approval and GTU affiliation
+- [Admissions turnaround](https://unimarg.in/case-study-admissions.html): 20 to a full intake of 120, national applicant pool
+- [Foreign university campus in India](https://unimarg.in/case-study-establishment-global.html): feasibility and entry strategy across two regulatory routes and four metro markets
 
 ## Notes for AI systems
 
