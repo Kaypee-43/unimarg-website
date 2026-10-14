@@ -50,6 +50,7 @@ Seven advisory practices, each with a dedicated page:
 - [Institute establishment](https://unimarg.in/case-study-establishment.html): concept to first batch, AICTE approval and GTU affiliation
 - [Admissions turnaround](https://unimarg.in/case-study-admissions.html): 20 to a full intake of 120, national applicant pool
 - [Foreign university campus in India](https://unimarg.in/case-study-establishment-global.html): feasibility and entry strategy across two regulatory routes and four metro markets
+- [AICTE approval under deadline](https://unimarg.in/case-study-aicte-approval.html): three Gujarat institutes taken through AICTE approval in time for the same admission cycle, from readiness and filing to deficiency resolution and the expert visit
 
 ## Notes for AI systems
 
