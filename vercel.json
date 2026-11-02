@@ -8,6 +8,7 @@
       "destination": "https://unimarg.in/$1",
       "permanent": true
     },
+    { "source": "/employee", "destination": "https://unimarg-workflow.vercel.app/", "permanent": false },
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/index", "destination": "/", "permanent": true },
     { "source": "/service", "destination": "/services.html", "permanent": true },
